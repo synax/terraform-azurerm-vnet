@@ -50,7 +50,6 @@ variable "route_table_ids" {
 
   default = {
     subnet1 = "rt1"
-    subnet3 = "rt3"
   }
 }
 
