@@ -55,13 +55,10 @@ variable "route_table_ids" {
 }
 
 variable "service_endpoints" {
-  description = "A map of subnet name to Service Endpoints, allowed values are 'Microsoft.Storage','Microsoft.Sql'"
-  type        = "map"
+  description = "A list of Service Endpoints to be added to the subnets created (Will be added to all subnets), allowed values are 'Microsoft.Storage','Microsoft.Sql'"
+  type        = "list"
 
-  default = {
-    subnet1 = ["Microsoft.Storage", "Microsoft.Sql"]
-    subnet3 = ["Microsoft.Storage"]
-  }
+  default = ["Microsoft.Storage", "Microsoft.Sql"]
 }
 
 variable "tags" {

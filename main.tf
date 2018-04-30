@@ -19,7 +19,7 @@ resource "azurerm_subnet" "subnet" {
   resource_group_name       = "${azurerm_resource_group.vnet.name}"
   address_prefix            = "${var.subnet_prefixes[count.index]}"
   network_security_group_id = "${lookup(var.nsg_ids,var.subnet_names[count.index],"")}"
-  service_endpoints         = "${lookup(var.service_endpoints,var.subnet_names[count.index],"")}"
+  service_endpoints         = "${var.service_endpoints}"
   route_table_ids           = "${lookup(var.route_table_ids,var.subnet_names[count.index],"")}"
   count                     = "${length(var.subnet_names)}"
 }
