@@ -44,6 +44,26 @@ variable "nsg_ids" {
   }
 }
 
+variable "route_table_ids" {
+  description = "A map of subnet name to Route Table IDs"
+  type        = "map"
+
+  default = {
+    subnet1 = "rt1"
+    subnet3 = "rt3"
+  }
+}
+
+variable "service_endpoints" {
+  description = "A map of subnet name to Service Endpoints, allowed values are 'Microsoft.Storage','Microsoft.Sql'"
+  type        = "map"
+
+  default = {
+    subnet1 = ["Microsoft.Storage", "Microsoft.Sql"]
+    subnet3 = ["Microsoft.Storage"]
+  }
+}
+
 variable "tags" {
   description = "The tags to associate with your network and subnets."
   type        = "map"
